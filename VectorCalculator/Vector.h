@@ -24,6 +24,8 @@ public:
 
 	float magnitude();
 
+	Vector unitVector();
+
 private:
 	float x = 0;
 	float y = 0;

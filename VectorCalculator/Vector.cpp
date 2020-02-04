@@ -20,9 +20,18 @@ Vector::Vector(float xin, float yin, float zin)
 	z = zin;
 }
 
-
 //pythagoras on the values
 float Vector::magnitude()
 {
-	return sqrt(x * x + y * y + z * z);
+	return sqrt((double)x * (double)x + (double)y * (double)y + (double)z * (double)z);
+}
+
+Vector Vector::unitVector() {
+	if (z == 0) {
+		return Vector(x / magnitude(), y / magnitude());
+	}
+	else {
+		return Vector(x / magnitude(), y / magnitude(), z / magnitude());
+
+	}
 }
