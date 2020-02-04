@@ -19,3 +19,10 @@ Vector::Vector(float xin, float yin, float zin)
 	y = yin;
 	z = zin;
 }
+
+
+//pythagoras on the values
+float Vector::magnitude()
+{
+	return sqrt(x * x + y * y + z * z);
+}
