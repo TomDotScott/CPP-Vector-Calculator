@@ -17,10 +17,10 @@ public:
 	Vector();
 
 	//for 2d vectors
-	Vector(float x, float y);
+	Vector(float xin, float yin);
 
 	//for 3d vectors
-	Vector(float x, float y, float z);
+	Vector(float xin, float yin, float zin);
 
 	float magnitude();
 
