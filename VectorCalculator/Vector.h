@@ -14,6 +14,26 @@ public:
 		return z;
 	}
 
+	Vector operator +(Vector& v) {
+		return Vector(v.getX() + x, v.getY() + y, v.getZ() + z);
+	}
+
+	void operator +=(Vector& v) {
+		x += v.getX();
+		y += v.getY();
+		z += v.getZ();
+	}
+
+	Vector operator -(Vector& v) {
+		return Vector(x - v.getX(), y - v.getY(), z - v.getZ());
+	}
+
+	void operator -=(Vector& v) {
+		x -= v.getX();
+		y -= v.getY();
+		z -= v.getZ();
+	}
+
 	Vector();
 
 	//for 2d vectors
@@ -24,6 +44,8 @@ public:
 
 	float magnitude();
 
+	float scalarProduct();
+
 	Vector unitVector();
 
 private:
@@ -32,8 +54,5 @@ private:
 	float z = 0;
 };
 
-Vector operator +(Vector& left, Vector& right){
-	return Vector(right.getX() + left.getX(), right.getY() + left.getY(), right.getZ() + left.getZ());
 
-}
 
