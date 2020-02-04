@@ -30,6 +30,10 @@ private:
 	float x = 0;
 	float y = 0;
 	float z = 0;
-
 };
+
+Vector operator +(Vector& left, Vector& right){
+	return Vector(right.getX() + left.getX(), right.getY() + left.getY(), right.getZ() + left.getZ());
+
+}
 
