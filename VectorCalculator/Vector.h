@@ -1,4 +1,7 @@
 #pragma once
+#include <ostream>
+
+
 class Vector
 {
 public:
@@ -13,6 +16,18 @@ public:
 	float getZ() {
 		return z;
 	}
+
+	Vector();
+
+	//for 2d vectors
+	Vector(float xin, float yin);
+
+	//for 3d vectors
+	Vector(float xin, float yin, float zin);
+
+	float magnitude();
+
+	Vector unitVector();
 
 	Vector operator +(Vector& v) {
 		return Vector(v.getX() + x, v.getY() + y, v.getZ() + z);
@@ -34,19 +49,10 @@ public:
 		z -= v.getZ();
 	}
 
-	Vector();
+	float operator *(Vector& s) {
+		return x * s.getX() + y * s.getY() + z * s.getZ();
+	}
 
-	//for 2d vectors
-	Vector(float xin, float yin);
-
-	//for 3d vectors
-	Vector(float xin, float yin, float zin);
-
-	float magnitude();
-
-	float scalarProduct();
-
-	Vector unitVector();
 
 private:
 	float x = 0;
@@ -54,5 +60,13 @@ private:
 	float z = 0;
 };
 
+const std::ostream& operator <<(std::ostream& os, Vector v) {
+	if (v.getZ() == 0) {
+		os << "X: " << v.getX() << " Y: " << std::endl;
+		return os;
+	}
+	os << "X: " << v.getX() << " Y: " << " Z: " << v.getZ() << std::endl;
+	return os;
+}
 
 

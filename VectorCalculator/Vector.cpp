@@ -35,9 +35,3 @@ Vector Vector::unitVector() {
 
 	}
 }
-
-Vector Vector::operator +(Vector& right) {
-	return Vector(right.getX() + x, right.getY() + y, right.getZ() + z);
-}
-
-
