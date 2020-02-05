@@ -4,14 +4,13 @@
 
 int main()
 {
-	Vector a = Vector(2, 3, 5);
-	Vector b = Vector(1, -1, 0);
+	Vector a = Vector(5, 8, -4);
+	Vector b = Vector(0, -3, 8);
 
-	std::cout << a;
+	Vector vectorProduct = a * b;
+	std::cout << vectorProduct;
+	std::cout << "MAGNITUDE" << vectorProduct.magnitude() << std::endl;
+	std::cout << "UNIT VECTOR" << vectorProduct.unitVector();
 
-	std::cout << b;
-
-	std::cout << a * b;
-
-	std::cout << a / b;
+	//std::cout << a.findAngle(b);
 }

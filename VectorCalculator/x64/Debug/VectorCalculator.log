@@ -1,5 +1,2 @@
-﻿  Vector.cpp
-  main.cpp
-  Generating Code...
-D:\Alice\Vector-Calculator\VectorCalculator\Vector.cpp(26,13): warning C4244:  'return': conversion from 'double' to 'float', possible loss of data
+﻿  main.cpp
   VectorCalculator.vcxproj -> D:\Alice\Vector-Calculator\x64\Debug\VectorCalculator.exe
