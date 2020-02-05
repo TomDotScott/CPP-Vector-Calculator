@@ -29,6 +29,8 @@ public:
 
 	Vector unitVector();
 
+	float findAngle(Vector& other);
+
 	friend void operator +=(Vector& lhs, Vector& rhs);
 
 private:
@@ -54,7 +56,6 @@ inline Vector operator /(Vector& lhs, Vector& rhs) {
 		return Vector(lhs.getX() / rhs.getX(), lhs.getY() / rhs.getY(), lhs.getZ() / rhs.getZ());
 	}
 	return Vector(lhs.getX() / rhs.getX(), lhs.getY() / rhs.getY());
-
 }
 
 inline const std::ostream& operator <<(std::ostream& os, Vector v) {

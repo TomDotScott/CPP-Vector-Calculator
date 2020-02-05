@@ -1,6 +1,9 @@
 #pragma once
 #include "Vector.h"
 #include <math.h>
+#include <iostream>
+#define M_PI 3.1415926535  
+
 
 Vector::Vector()
 {
@@ -36,3 +39,10 @@ Vector Vector::unitVector() {
 	}
 }
 
+float Vector::findAngle(Vector& other) {
+	//find scalar product
+	float scalar = getX() * other.getX() + getY() * other.getY() + getZ() * other.getZ();
+	std::cout << "THE SCALAR PRODUCT: " << scalar << std::endl;
+	//cos^-1( scalar product / (magA * magB) )
+	return acos(scalar / (magnitude() * other.magnitude())) * 180 / M_PI;
+}
