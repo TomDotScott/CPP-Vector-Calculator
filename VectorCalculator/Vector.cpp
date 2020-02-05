@@ -36,4 +36,3 @@ Vector Vector::unitVector() {
 	}
 }
 
-

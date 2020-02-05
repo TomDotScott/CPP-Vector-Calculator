@@ -11,7 +11,7 @@ int main()
 
 	std::cout << b;
 
-	std::cout << a + b;
+	std::cout << a * b;
 
-	std::cout << a - b;
+	std::cout << a / b;
 }
