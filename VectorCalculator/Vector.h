@@ -29,30 +29,7 @@ public:
 
 	Vector unitVector();
 
-	Vector operator +(Vector& v) {
-		return Vector(v.getX() + x, v.getY() + y, v.getZ() + z);
-	}
-
-	void operator +=(Vector& v) {
-		x += v.getX();
-		y += v.getY();
-		z += v.getZ();
-	}
-
-	Vector operator -(Vector& v) {
-		return Vector(x - v.getX(), y - v.getY(), z - v.getZ());
-	}
-
-	void operator -=(Vector& v) {
-		x -= v.getX();
-		y -= v.getY();
-		z -= v.getZ();
-	}
-
-	float operator *(Vector& s) {
-		return x * s.getX() + y * s.getY() + z * s.getZ();
-	}
-
+	friend void operator +=(Vector& lhs, Vector& rhs);
 
 private:
 	float x = 0;
@@ -60,12 +37,25 @@ private:
 	float z = 0;
 };
 
-const std::ostream& operator <<(std::ostream& os, Vector v) {
+inline Vector operator +(Vector& lhs, Vector& rhs) {
+	return Vector(lhs.getX() + rhs.getX(), lhs.getY() + rhs.getY(), lhs.getZ() + rhs.getZ());
+}
+
+inline Vector operator -(Vector& lhs, Vector& rhs) {
+	return Vector(lhs.getX() - rhs.getX(), lhs.getY() - rhs.getY(), lhs.getZ() - rhs.getZ());
+}
+
+inline Vector operator *(Vector& lhs, Vector& rhs) {
+	return Vector(lhs.getX() * rhs.getX(), lhs.getY() * rhs.getY(), lhs.getZ() * rhs.getZ());
+}
+
+
+inline const std::ostream& operator <<(std::ostream& os, Vector v) {
 	if (v.getZ() == 0) {
-		os << "X: " << v.getX() << " Y: " << std::endl;
+		os << "X: " << v.getX() << " Y: " << v.getY() << std::endl;
 		return os;
 	}
-	os << "X: " << v.getX() << " Y: " << " Z: " << v.getZ() << std::endl;
+	os << "X: " << v.getX() << " Y: " << v.getY() << " Z: " << v.getZ() << std::endl;
 	return os;
 }
 
