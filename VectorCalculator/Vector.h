@@ -47,8 +47,13 @@ inline Vector operator -(Vector& lhs, Vector& rhs) {
 	return Vector(lhs.getX() - rhs.getX(), lhs.getY() - rhs.getY(), lhs.getZ() - rhs.getZ());
 }
 
+//Vector Product
 inline Vector operator *(Vector& lhs, Vector& rhs) {
-	return Vector(lhs.getX() * rhs.getX(), lhs.getY() * rhs.getY(), lhs.getZ() * rhs.getZ());
+	//cross multiply and return a new vector
+	float x = lhs.getY() * rhs.getZ() + lhs.getZ() * rhs.getY();
+	float y = lhs.getX() * rhs.getZ() + lhs.getZ() * rhs.getX();
+	float z = lhs.getX() * rhs.getY() + lhs.getY() * rhs.getX();
+	return Vector(x, -y, z);
 }
 
 inline Vector operator /(Vector& lhs, Vector& rhs) {

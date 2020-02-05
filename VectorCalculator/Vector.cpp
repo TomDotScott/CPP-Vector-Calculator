@@ -42,7 +42,10 @@ Vector Vector::unitVector() {
 float Vector::findAngle(Vector& other) {
 	//find scalar product
 	float scalar = getX() * other.getX() + getY() * other.getY() + getZ() * other.getZ();
-	std::cout << "THE SCALAR PRODUCT: " << scalar << std::endl;
-	//cos^-1( scalar product / (magA * magB) )
-	return acos(scalar / (magnitude() * other.magnitude())) * 180 / M_PI;
+	if (scalar != 0) {
+		std::cout << "THE SCALAR PRODUCT: " << scalar << std::endl;
+		//cos^-1( scalar product / (magA * magB) )
+		return acos(scalar / (magnitude() * other.magnitude())) * 180 / M_PI;
+	}
+	return 90;
 }
