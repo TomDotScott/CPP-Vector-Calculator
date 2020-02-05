@@ -49,16 +49,12 @@ inline Vector operator *(Vector& lhs, Vector& rhs) {
 	return Vector(lhs.getX() * rhs.getX(), lhs.getY() * rhs.getY(), lhs.getZ() * rhs.getZ());
 }
 
-inline Vector operator *(Vector& lhs, float& rhs) {
-	return Vector(lhs.getX() * rhs, lhs.getY() * rhs, lhs.getZ() * rhs);
-}
-
 inline Vector operator /(Vector& lhs, Vector& rhs) {
-	return Vector(lhs.getX() / rhs.getX(), lhs.getY() / rhs.getY(), lhs.getZ() / rhs.getZ());
-}
+	if (lhs.getZ() == 0) {
+		return Vector(lhs.getX() / rhs.getX(), lhs.getY() / rhs.getY(), lhs.getZ() / rhs.getZ());
+	}
+	return Vector(lhs.getX() / rhs.getX(), lhs.getY() / rhs.getY());
 
-inline Vector operator /(Vector& lhs, float& rhs) {
-	return Vector(lhs.getX() / rhs, lhs.getY() / rhs, lhs.getZ() / rhs);
 }
 
 inline const std::ostream& operator <<(std::ostream& os, Vector v) {
